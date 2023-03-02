@@ -1,0 +1,44 @@
+extends LoginLayout
+
+block content
+    .flex-container
+        form#loginForm.form(action="/Login", method='post')   
+            img.logo(src="images/logo/logo6.png")
+            h2 כניסה
+            
+            .form-group
+                input#logiMmail(type='email', name='logiMmail', required)
+                label(for='logiMmail') מייל
+            .form-group
+                input#loginPassword(type='password', name='loginPassword', required)
+                label(for='loginPassword') סיסמא
+            .href
+                a.forgotPWHref(href="#forgot-pw") ?שכחת סיסמא
+            button#submitLoginB(type='submit',value='Login', dir='ltr', class='submit-btn') 
+                span התחבר 
+            .or
+                .line
+                p או
+                .line
+            
+            .href
+                a.createAccountHref(href="registration") יצירת חשבון
+            
+            div#login-error.hidden
+
+            p.error-message(style="color: red;")= error
+            //-.href
+               a.tooHungryHref(href="3Homepage.html") רעב מידי לזה עכשיו
+
+    //- _________________________forget PW _________________________________________ //-action=,
+    #forgot-pw
+        form#fpForm.form(method="post" action="/ForgotPASS")
+            .href
+                a.close(href="#") X
+            img.logo(src="images/logo/logo6.png")
+            h2 איפוס סיסמא
+            .form-group
+                input#logiMmailFP(type="email", name="logiMmailFP",dir="ltr", required)
+                label(for="logiMmailFP") מייל
+            button#submitFpB(type='submit', dir="ltr", class='submit-btn')
+                span שלח 

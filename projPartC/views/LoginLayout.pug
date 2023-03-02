@@ -1,0 +1,31 @@
+doctype html
+html(lang="he",dir='rtl')
+    head
+        meta(charset="utf8mb4")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="../CSS/style.css")
+        //-link(rel="stylesheet", href="CSS/Home.css")
+        script(src='https://code.jquery.com/jquery-3.5.1.min.js',defer)
+        script(src='https://polyfill.io/v3/polyfill.min.js?features=default',defer)
+        script(src="../JS/clientSideJS.js", defer)
+        script(defer, type="text/javascript", src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT6PD_dlie0kMexdyaUcLCAbAq_Pi6oQ0&libraries=places&callback=initAutocomplete")
+       
+        title #{title} 
+    body#loginBODY
+    
+    block nav 
+
+    block content 
+
+    footer
+        .copyright
+            h4#footerLI4 COPYRIGHT © 2023 MaBamanch      ALL RIGHTS RESERVED to      Anna Peretiatka 
+            //- <br>      ALL RIGHTS RESERVED to      Anna Peretiatka
+            ul(class="copyright_nav")
+                li
+                    a#footerLI1(class="accessibilityLink b-copyright_nav-link", href="https://vpnpro.com/wp-content/uploads/Access-denied-website-bypass.jpg") Accessibility
+                li
+                    a#footerLI2(class="b-copyright_nav-link", href="https://brandhero.shop/wp-content/uploads/2022/06/Terms-and-Conditions-Policies-BrandHero.jpg") Terms and Conditions
+                li
+                    a#footerLI3(class="b-copyright_nav-link", href="https://www.cumanagement.com/sites/default/files/2018-09/privacy-notice-keyboard.jpg") Privacy Notice

@@ -1,0 +1,45 @@
+extends HomePandSearchLayout
+
+block anotherContent
+    //- h2 #{V2} איזה כייף לראותך! 
+    p.contentItem.XSabout  #{UserName} איזה כייך לראותך אותך כאן
+        <br>
+        <br> רק חבל שאתה כל כך רעב..
+        <br>
+        <br>למזלך, אנחנו כאן לעזור לך למצוא חברים חדשים מאיזור!
+        <br>אה, כן ... וגם אוכל!
+        <br>ככל שיש יותר מצטרפים חדשים לקהילה שלנו, כך גם כמות האופציות גדלה.
+        <br>לכן, אנו מזמינים אתכם להיות חלק מהמהפכה ולהוסף מאכלים אותם אתם יודעים להכין ולכו תדעו, אולי גם יצא מזה כסף או חברים חדשים מהאיזור
+        <br>
+        <br>לחצו התחל, על מנת להתחיל לסנן מאכלים ואירועים מהמגוון הרחב אותו אנו מציאים, תהנו :)
+        <br>
+        <br> שימו  &#x2665
+        <br>אתם יכולים להיות רגועים, כמה מה שלחצתם עליו נשמר ובמידה ושכחתם משהו ניתן להוריד בסינון מצד ימין, וכמובן לא חייבים ללחוץ על הכל על מנת לסנן.
+        button#showContent(type='button', dir="ltr", class='submit-btn')
+            span התחל
+    h3#h3Bub1.h3Bub  כמה המאנצ' חזק?
+    .BubRow1(dir="ltr")
+        input#meRosh.bubbleItem.meRosh(type="image", src="../images/bubbless/meRosh.png", value="meRosh")
+        input#forNow.bubbleItem.forNow(type="image", src="../images/bubbless/forNow.png", value="forNow")
+    h3#h3Bub2.h3Bub במידה ומעוניינים בשניהם ניתן להוסיף מימין
+    .BubRow2(dir="ltr")
+        input#Kosher.bubbleItem.kosher(type="image", src="../images/bubbless/Kosher.png", value="Kosher")
+        input#notKosher.bubbleItem.notKosher(type="image", src="../images/bubbless/notKosher.png", value="notKosher")
+    h3#h3Bub3.h3Bub  נתחיל בקל 
+    .BubRow3(dir="ltr")   
+        input#healthy.bubbleItem.healthy(type="image", src="../images/bubbless/healthy.png", value="healthy")
+        input#mushhat.bubbleItem.mushhat(type="image", src="../images/bubbless/mushhat.png", value="mushhat")
+    h3#h3Bub4.h3Bub  נמשיך לקשה
+    .BubRow4(dir="ltr")   
+        input#sweety.bubbleItem.sweety(type="image", src="../images/bubbless/sweety.png", value="sweety")
+        input#salty.bubbleItem.salty(type="image", src="../images/bubbless/salty.png", value="salty")
+    h3#h3Bub5.h3Bub  ככה שאלה אחרונה על מנת לעזור לנו לכוון מדוייק 
+    .BubRow5(dir="ltr")
+        input#milk.bubbleItem.milk(type="image", src="../images/bubbless/milk.png", value="milk")
+        input#meat.bubbleItem.meat(type="image", src="../images/bubbless/meat.png", value="meat")
+        input#fish.bubbleItem.fish(type="image", src="../images/bubbless/fish.png", value="fish")
+        input#parve.bubbleItem.parve(type="image", src="../images/bubbless/parve.png", value="parve")
+    .contentItem.Search 
+        .c.BTN
+            a#searchBTN(type='button', dir="ltr", class='submit-btn')
+                span תמצא לי

@@ -1,0 +1,5 @@
+﻿order_id,customer_id,post_id,order_date,order_quantity,payment_method
+1,2,4,2023/02/02,10,ביט
+2,1,4,2023/02/02,40,מזומן
+3,4,5,2023/02/07,4,מזומן
+4,2,1,2023/02/08,1,אשראי

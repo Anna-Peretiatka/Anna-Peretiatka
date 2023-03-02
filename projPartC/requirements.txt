@@ -1,0 +1,47 @@
+1.  כל ה-module שהתקנתי:
+
+npi i express path pug fs csvtojson nodemon mysql2 body-parser cookie-parser multer nodemailer googleapis oAuth2 url  --save
+
+2.  נתיבי היצירה, הכנסה, צפיה ומחיקה של הטבלאות שלכם 
+http://localhost:3000/createTbUsers
+http://localhost:3000/createTagList
+http://localhost:3000/createTbPosts
+http://localhost:3000/createTbPostTags
+http://localhost:3000/createTbOrders
+
+http://localhost:3000/insertTbUsers
+http://localhost:3000/insertTagList
+http://localhost:3000/insertTbPosts
+http://localhost:3000/insertTbPostTags
+http://localhost:3000/insertTbOrders
+
+http://localhost:3000/showTbUsers
+http://localhost:3000/showTbTagList
+http://localhost:3000/showTbPosts
+http://localhost:3000/showTbPostTags
+http://localhost:3000/showTbOrders
+
+http://localhost:3000/dropTbOrders
+http://localhost:3000/dropTbPostImages
+http://localhost:3000/dropTbPostTags
+http://localhost:3000/dropTbPosts
+http://localhost:3000/dropTbUsers
+
+
+3. .העתיקו את ה- syntax של יצירת הטבלאות למסמך זה 
+
+create:
+registratedUSERS: CREATE TABLE IF NOT EXISTS registratedUSERS (UserPhone VARCHAR(11) NOT NULL primary key, UserMail VARCHAR(255) NOT NULL, UserName VARCHAR(255) NOT NULL, UserLastName VARCHAR(255) NOT NULL, UserAddress VARCHAR(255), UserPassword VARCHAR(255) NOT NULL, UsePic BLOB, calendar_url TEXT NOT NULL, INDEX (UserMail))
+Posts: CREATE TABLE IF NOT EXISTS Posts (post_id INT AUTO_INCREMENT PRIMARY KEY, event BOOLEAN NOT NULL, title TEXT NOT NULL, description TEXT NOT NULL, price DECIMAL(6,2) NOT NULL, time_till_order INT NOT NULL, allow_delivery BOOLEAN NOT NULL, address VARCHAR(255) NOT NULL, delivery_fee DECIMAL(6,2) NOT NULL, max_quantity_per_day INT NOT NULL)
+postTags: CREATE TABLE IF NOT EXISTS postTags (post_id INT, tag BOOLEAN NOT NULL, PRIMARY KEY (post_id, tag), FOREIGN KEY (post_id) REFERENCES posts(post_id))
+PostImages: CREATE TABLE IF NOT EXISTS PostImages (image_id INT AUTO_INCREMENT PRIMARY KEY, post_id INT NOT NULL, image_path VARCHAR(255) NOT NULL, description TEXT, FOREIGN KEY (post_id) REFERENCES Posts(post_id) ON DELETE CASCADE)
+Orders: CREATE TABLE IF NOT EXISTS Orders (order_id INT AUTO_INCREMENT PRIMARY KEY, UserPhone VARCHAR(10) NOT NULL, post_id INT NOT NULL, order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, order_quantity INT NOT NULL, payment_method VARCHAR(50) NOT NULL, FOREIGN KEY (UserPhone) REFERENCES registratedUSERS(UserPhone), FOREIGN KEY (post_id) REFERENCES Posts(post_id))
+PublisherPosts: CREATE TABLE IF NOT EXISTS PublisherPosts (publisher_Postid INT PRIMARY KEY, publisherpost_Phone VARCHAR(10) NOT NULL, Post_id INT NOT NULL, FOREIGN KEY (publisherpost_Phone) REFERENCES registratedUSERS(UserMail), FOREIGN KEY (post_id) REFERENCES Posts(post_id))
+
+drop:
+PublisherPosts
+Orders
+PostImages
+postTags
+Posts
+registratedUSERS

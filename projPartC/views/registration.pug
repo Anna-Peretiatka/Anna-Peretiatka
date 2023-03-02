@@ -1,0 +1,78 @@
+extends LoginLayout
+
+block content
+    .flex-container
+        form#regiForm.form(action="/registration", method='post', enctype="multipart/form-data") 
+            .href
+                a.close(href="/Login")  &#8594
+            img.logo(src='../images/logo/logo6.png')
+            h2 הרשמה
+            .form-group
+                span.required *
+                span.error-message
+                input#regemail(type='email', name='regemail', required)
+                label(for='regemail') מייל
+            .form-group
+                span.required *
+                span.error-message
+                input#regname(type='text', name='regname',dir="rtl", required)
+                label(for='regname') שם
+            .form-group 
+                span.required *
+                span.error-message
+                input#reglastname(type='text', name='reglastname',dir="rtl" required)
+                label(for='reglastname')  שם משפחה
+            .form-group
+                span.required *
+                span.error-message
+                input#regtel(type='tel', name='regtel', pattern='[0-9]+',placeholder="05XXXXXXXX", required)
+                label(for='regtel') נייד
+            .form-group
+                input#pacinput.controls(dir="rtl",type='text', name='pacinput', placeholder='הכנס כתובת מגורים')
+                #map
+                script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDT6PD_dlie0kMexdyaUcLCAbAq_Pi6oQ0&callback=initAutocomplete&libraries=places&v=weekly', defer)
+                input#UAdress(type="hidden", name="UAdress")
+                input#lat(type="hidden", name="lat", value= 0.0)
+                input#lng(type="hidden", name="lng", value= 0.0)
+            .form-group
+                h3(dir="rtl", style="font-size: 0.7rem") לפחות 8 ספרות, כולל אות גדולה, קטנה ומספר 
+                span.required *
+                input#loginPassword(type='password', name='loginPassword', required)
+                label(for='loginPassword') סיסמא
+                span.error-message
+            .form-group
+                span.required *
+                input#loginPassword2(type='password', name='loginPassword2', required)
+                label(for='loginPassword2') הזן סיסמא שנית
+                span.error-message
+            .form-group
+                h3(dir="rtl", style="font-size: 0.7rem") פורמט PNG בלבד
+                <br>
+                input#regpic(type='file', name='regpic', accept='image/png')
+                label(for='regpic') תמונת פרופיל
+                span.error-message
+
+                h3(dir="rtl", style="color: #e50000") על מנת להמשיך, יש להוסיף יומן גוגל אישי חדש! <br>  לשם כך, נדרש: 
+                h3(dir="rtl", style="color: #052939")
+                    <br> 1. להיכנס לקישור הבא:
+                    a(href="https://calendar.google.com/calendar/u/0/r")  יומן גוגל 
+                    <br> 2. מימין, בקטע יומנים אחרים, לוחצים על '+'' ואז יצירת יומן חדש ויוצרים.
+                    <br> 3. בסיום, חוזרים אחורה ולוחצים על סמל ההגדרות ובפנים נכנסים להגדרות.
+                    <br> 4. מימין נכנסים ליומן החדש, לעבור על ההגרות ולוודא 'שיתוף באופן גלוי לכולם.'
+                    <br> 5.נכנסים להתאמה אישית ומוודאים בסרגל הכלים מימין:
+                    <br> א. לתת שם ליומן המתאים לאתר.
+                    <br> ב. להוריד: סמל הדפסה, רשימת היומנים ואת כלל היומנים הלא רלוונטיים (מלבד חגי ישראל במידה ומעוניינים).
+                    <br> 6. מעתיקים את קוד ההטמעה למעלה ומדביקים
+                    <br>
+                    <br>
+            .form-group
+                input#GoogleC(type="url", name="GoogleC")
+                label(for="GoogleC")  :כאן
+                span.error-message
+            .contentItem.calendar
+                label(for="calendarPre")  תצוגה מקדימה (לדוגמה) 
+            <br>
+                iframe#calendarPre(src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23B39DDB&ctz=Asia%2FJerusalem&showPrint=0&showTabs=1&showCalendars=0&src=ZWM4NDVkNzQ2OWNhM2Q1YTQwYjc0ZTI0ZjcxN2JiNzlkZmM3MTUwMTcyNWFmMWI1YTRkNDZmOTgxMWNkY2VlY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=aXcuamV3aXNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23D81B60&color=%230B8043", style="border-width:0", width="450", height="338")
+            <br>
+            button#Butregi(type='submit', dir="ltr", class='submit-btn') 
+                span הירשם
