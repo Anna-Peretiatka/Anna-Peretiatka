@@ -1,0 +1,76 @@
+extends LoginLayout
+
+block content
+    .flex-container
+        form#updateForm.form(action="/updateRegi", method='post', enctype="multipart/form-data") 
+            .href
+                a.close(href="/HomePage")  &#8594
+            img.logo(src='../images/logo/logo6.png')
+            h2 עדכון פרטים
+            .form-group
+                console.log("אנחנו בפנים!!!!!!!!")
+                console.log(user)
+                console.log(user.UserMail)
+                input#updateemail(type='email', name='regemail', value=user.UserMail,required)
+                label(for='updateemail') מייל
+            .form-group
+                span.required *
+                span.error-message
+                input#updatename(type='text', name='regname',dir="rtl", value= user.UserName, required)
+                label(for='updatename') שם
+            .form-group 
+                span.required *
+                span.error-message
+                input#updatelastname(type='text', name='reglastname',dir="rtl" value= user.UserLastName, required)
+                label(for='updatelastname')  שם משפחה
+            .form-group
+                input#updatetel(type='tel', name='regtel', pattern='[0-9]+',placeholder="לא ניתן לשינוי", value= user.UserPhone,required)
+                label(for='updatetel') נייד
+            .form-group
+                input#pacinput.controls(dir="rtl",type='text', name='pacinput', value= user.UserAddress, placeholder='הכנס כתובת מגורים')
+                #map
+                script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDT6PD_dlie0kMexdyaUcLCAbAq_Pi6oQ0&callback=initAutocomplete&libraries=places&v=weekly', defer)
+                input#UAdress(type="hidden", name="UAdress", value= user.UserAddress)
+                //- input#lat(type="hidden", name="lat", value= user.UserAdrsLat)
+                //- input#lng(type="hidden", name="lng", value= user.UserAdrLng)
+                input#lat(type="hidden", name="lat",value= 0.0 )
+                input#lng(type="hidden", name="lng", value= 0.0 )
+
+            .form-group
+                h3(dir="rtl", style="font-size: 0.7rem") לפחות 8 ספרות, כולל אות גדולה, קטנה ומספר 
+                span.required *
+                input#updatePassword(type='password', name='loginPassword',required)
+                label(for='updatePassword') סיסמא
+                span.error-message
+            .form-group
+                span.required *
+                input#updatePassword2(type='password', name='loginPassword2',required)
+                label(for='updatePassword2') הזן סיסמא שנית
+                span.error-message
+            .form-group
+                h3(dir="rtl", style="font-size: 0.7rem") פורמט PNG בלבד
+                <br>
+                input#updatepic(type='file', name='regpic', accept='image/png')
+                label(for='updatepic') תמונת פרופיל
+                span.error-message
+
+                h3(dir="rtl", style="color: #e50000") על מנת להמשיך, יש להוסיף יומן גוגל אישי חדש! <br>  לשם כך, נדרש: 
+                h3(dir="rtl", style="color: #052939")
+                    <br> 1. להיכנס לקישור הבא:
+                    a(href="https://calendar.google.com/calendar/u/0/r")  יומן גוגל 
+                    <br> 2. מימין, בקטע יומנים אחרים, לוחצים על '+'' ואז יצירת יומן חדש ויוצרים.
+                    <br> 3. בסיום, חוזרים אחורה ולוחצים על סמל ההגדרות ובפנים נכנסים להגדרות.
+                    <br> 4. מימין נכנסים ליומן החדש, לעבור על ההגרות ולוודא 'שיתוף באופן גלוי לכולם.'
+                    <br> 5.נכנסים להתאמה אישית ומוודאים בסרגל הכלים מימין:
+                    <br> א. לתת שם ליומן המתאים לאתר.
+                    <br> ב. להוריד: סמל הדפסה, רשימת היומנים ואת כלל היומנים הלא רלוונטיים (מלבד חגי ישראל במידה ומעוניינים).
+                    <br> 6. מעתיקים את קוד ההטמעה למעלה ומדביקים
+                    <br>
+                    <br>
+            .form-group
+                input#updateGoogleC(type="url", name='GoogleC')
+                label(for="updateGoogleC")  :כאן
+                span.error-message
+            <br>
+            button#updateButregi(type='submit', dir="ltr", class='submit-btn') 
+                span הירשם

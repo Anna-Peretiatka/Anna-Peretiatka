@@ -1,0 +1,72 @@
+extends HomeLayout
+
+block insideContent
+    .userGrid#userGridPoP
+        #profileP.userItem.profileP
+            img#userProfileR(src="../images/UsePic/"+post.UsePic+".png")
+            br
+            h3 #{post.UserName} #{post.UserLastName}
+        #potoFood.userItem.photoFood
+            #post1.postItem
+                    .post_header
+                            .poster
+                                img#Avatar1(src="../images/UsePic/"+post.UsePic+".png")
+                                h4#userNameN1 #{post.UserName} #{post.UserLastName}
+                            h3#titleN1 #{post.PostTitle}
+                    img(class="post_image", src="../images/PostImages/"+post.post_id+".png")
+                    .post_quickInfo
+                        img#dot1(src="../images/red.png")
+                        h3#kmNEW1  0 km
+                        h3#priceNew1  0 km
+        #Explain.userItem.Explain(dir="rtl")
+            h2#BigPOST(style="color: #f46487") #{post.PostTitle}
+            br
+            h3(style="color: #017e7f") #{post.PostDescrip}
+            br
+            h4(style="color: #017e7f") #{post.PostPrice}
+            br
+            if post.IsDeliver > 0    
+                h4(style="color: #017e7f") זמין למשלוח
+            else
+                h4(style="color: #017e7f") לא זמין למשלוח        
+            br
+            h4(style="color: #017e7f") #{post.UserPhone}
+            br
+            h5(style="color: #017e7f") #{post.UserAddress}
+            br
+            #userH4
+                each t in tags
+                    h5(style="color: #ffffff") ##{t.tag_name}
+        h3#moreFoofh3(dir="rtl") מאכלים נוספים של #{post.UserName} #{post.UserLastName}
+        #moreFood.userItem.moreFood(dir="rtl")
+            each o in others
+                #post2.postItem
+                    .post_header
+                            .poster
+                                img#Avatar1(src="../images/UsePic/"+post.UsePic+".png")
+                                h4#userNameN1 #{post.UserName} #{post.UserLastName}
+                            h3#titleN1 #{o.PostTitle}
+                    img(class="post_image", src="../images/PostImages/"+o.post_id+".png")
+                    .post_quickInfo
+                        img#dot1(src="../images/red.png")
+                        h3#kmNEW1  0 km
+                        h3#priceNew1  0 km
+        #calendar.userItem.calendar
+            iframe(src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23B39DDB&amp;ctz=Asia%2FJerusalem&amp;showPrint=0&amp;showTabs=1&amp;showCalendars=0&amp;src=ZWM4NDVkNzQ2OWNhM2Q1YTQwYjc0ZTI0ZjcxN2JiNzlkZmM3MTUwMTcyNWFmMWI1YTRkNDZmOTgxMWNkY2VlY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=aXcuamV3aXNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23D81B60&amp;color=%230B8043", style="border-width:0", width="450", height="338")
+        #orderFrom.userItem.order(dir="rtl")
+            br
+            br
+            br
+            h3(style="color: #f46487")  סמן יום לקבלת ההזמנה
+            h3(style="color: #f46487")  בחר כמות להזמנה ושיטת תשלום
+            h3(style="color: #017e7f")  בתאבון
+            #orderAmount
+                input#orderInput(type="number", name="orderInput")
+                label(for="orderInput") כמות המנות בהזמנה
+            select#paymentOption(name="pets")
+                option --בחר שיטת תשלום--
+                option אשראי עכשיו
+                option ביט
+                option מזומן מול המוכר (דורש אישור)
+            button.submit-btn(dir="ltr", type="submit")
+                span  שלח

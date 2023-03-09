@@ -1,0 +1,30 @@
+extends LoginLayout
+   
+block nav
+    nav
+        ul
+            li
+                img#homepagelogo(src="../images/logo/logo10.png")
+            li
+                a(href='/Homepage') מה במאנצ'?
+            li
+                a(href='/about') עלינו ♥
+            li
+                a(href='/Newpost') פוסט חדש+
+            li.searchCityBar
+                form#searchboxFORM(action='/api/posts/search', method="get")
+                    span.error-message(style="color:white")
+                    input#searchbox(dir="rtl", name="searchbox", onfocus="if (this.value=='  חפש  ') this.value = ''", type="text", value="  חפש  ", autocomplete="off")
+                    button#searchboxButton(type='submit', dir="ltr", class='submit-btn')
+                        span  חפש
+                    ul#searchbox-suggestions.dropdown-menu
+            li.dropdown
+                img#myprofile.dropbtn()
+                .dropdown-content
+                    a#update(href="/updateRegi") עדכון פרטים
+                    a#logout(href="/Logout") התנתק
+block content
+    .gridContent
+        img.contentItem.logo(src="../images/logo/logo8.png")
+        h2.contentItem.h2 #{V1}
+        block insideContent

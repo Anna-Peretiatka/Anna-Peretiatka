@@ -1,0 +1,22 @@
+extends HomePandSearchLayout
+
+block anotherContent
+    .postGrid
+        each p, i in posts
+            #post1.postItem
+                .post_header
+                    .poster
+                        img#Avatar1(src="../images/UsePic/"+p.publisher.UsePic+".png")
+                        h4#userNameN1 #{p.publisher.UserName} #{p.publisher.UserLastName}
+                    h3#titleN1 #{p.PostTitle}
+                a(href="/post/"+p.post_id)
+                    img(class="post_image", src="../images/PostImages/"+p.post_id+".png")
+                .post_quickInfo
+                    img#dot1(src= p.PreOrderTime <= 7 ? "../images/green.png" : "../images/red.png")
+                    h3#kmNEW1 #{p.distances ? parseFloat(p.distances).toFixed(2) + ' ק"מ' : ''}
+                    //- h3#kmNEW1  #{distances[i] && distances[i].distance ? parseFloat(distances[i].distance).toFixed(2) + ' ק"מ' : ''}
+                    h3#priceNew1 #{p.PostPrice} ש"ח 
+    .contentItem.Search 
+        .c.BTN
+            a#searchAgain(type='button', dir="ltr", class='submit-btn')
+                span סינון נוסף

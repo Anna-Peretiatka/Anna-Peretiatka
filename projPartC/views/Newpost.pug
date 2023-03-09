@@ -1,0 +1,102 @@
+extends HomeLayout
+
+block insideContent
+    form#formToPost.form(action="/Newpost", method='post')
+        .form-group
+            span.required *
+            span.error-message
+            input#PostTitle(type="text", name="PostTitle", required)
+            label(for="PostTitle") כותרת לפוסט
+        .form-group
+            span.required *
+            span.error-message
+            input#PostDescrip(type="text", name="PostDescrip", required)
+            label(for="PostDescrip") תיאור הפוסט
+        .form-group
+            span.required *
+            span.error-message
+            input#PostPrice(type="number", name="PostPrice", required)
+            label(for="PostPrice") מחיר בשקלים
+        .form-group
+            span.required *
+            span.error-message
+            h3(dir="rtl", style="font-size: 0.7rem")  במידה וניתן להזמין ממך להיום הכנס "0"
+            <br>
+            input#PreOrderTime(type="number", name="PreOrderTime", required)
+            label(for="PreOrderTime") ימים מראש לקבלת הזמנה
+        .form-group
+            span.required *
+            span.error-message
+            input#PostAddress(type="text",dir="rtl",name="PostAddress",value=userAddress, required)
+            label(for="PostAddress") כתובת
+            input#PostAddressLat(type="hidden", name="PostAddressLat")
+            input#PostAddressLng(type="hidden", name="PostAddressLng")
+        ul.boxTags(dir="rtl")
+            li
+                span.error-message
+                input#IsDeliver(type="checkbox", name="IsDeliver")
+                label(for="IsDeliver") לאפשר משלוח    
+        .form-group
+            span.error-message
+            <br>
+            input#DeliverFee(type="number", name="DeliverFee")
+            label(for="DeliverFee") מחיר משלוח
+        .form-group
+            span.required *
+            span.error-message
+            input#MaxDayAmount(type="number", name="MaxDayAmount", required)
+            label(for="MaxDayAmount") כמות מקסימלית שתכין ביום
+        ul.boxTags(dir="rtl")
+            li 
+                input#IsPostEvent(type="checkbox", name="IsPostEvent")
+                label(for="IsPostEvent") מדובר בפוסט אירוע ולא אוכל
+        h3(dir="rtl") תיוגים
+        |
+        ul.boxTags(dir="rtl")
+            li
+                input#NewmeRoshBox(type="checkbox", name="hashtagNew", value="meRosh")
+                label(for="NewmeRoshBox") הזמן מראש
+            li
+                input#NewforNowBox(type="checkbox", name="hashtagNew", value="forNow")
+                label(for="NewforNowBox") הזמן עכשיו
+            li
+                input#NewKosherBox(type="checkbox", name="hashtagNew", value="Kosher")
+                label(for="NewKosherBox") כשר
+            li
+                input#NewnotKosherBox(type="checkbox", name="hashtagNew", value="notKosher")
+                label(for="NewnotKosherBox") לא כשר
+            li
+                input#NewhealthyBox(type="checkbox", name="hashtagNew", value="healthy")
+                label(for="NewhealthyBox") בריא
+            li
+                input#NewmushhatBox(type="checkbox", name="hashtagNew", value="mushhat")
+                label(for="NewmushhatBox") מושחת
+            li
+                input#NewsweetBox(type="checkbox", name="hashtagNew", value="sweety")
+                label(for="NewsweetBox") מתוק
+            li
+                input#NewsaltBox(type="checkbox", name="hashtagNew", value="salty")
+                label(for="NewsaltBox") מלוח
+            li
+                input#NewmilkBox(type="checkbox", name="hashtagNew", value="milk")
+                label(for="NewmilkBox") חלבי
+            li
+                input#NewmeatBox(type="checkbox", name="hashtagNew", value="meat")
+                label(for="NewmeatBox") בשרי
+            li
+                input#NewfishBox(type="checkbox", name="hashtagNew", value="fish")
+                label(for="NewfishBox") דג
+            li
+                input#NewparveeBox(type="checkbox", name="hashtagNew", value="parve")
+                label(for="NewparveeBox") פרווה       
+        .form-group
+            span.required *
+            h3(dir="rtl", style="font-size: 0.7rem") הוסף תמונה לפוסט, פורמט PNG בלבד
+            //-label(for="PostFoodPic") הוסף תמונה
+            //- br 
+            input#PostFoodPic(type="file", name="PostFoodPic",dir="rtl",multiple, required)
+            span.error-message
+    
+        button#newPostButton(type='submit', dir="ltr", class='submit-btn')
+            span פרסם 
+        // <h4> צבע בירוק ימים בהם אתה זמין להכין ואנחנו נדאג לתת לך את זמן ההכנה הדרוש</h4>    

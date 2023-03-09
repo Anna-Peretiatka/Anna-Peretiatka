@@ -1,0 +1,69 @@
+extends HomeLayout
+
+
+block insideContent
+    .contentItem.Filter
+        h3.h3ExtraFilter סינון נוסף
+        .filterBar
+            label(dir="rtl",for="citySearch") מיקום
+            input.searchCity(id="citySearch",dir="rtl",name="citySearch", type="text",value=userAddress, required)
+            //-input.searchCity(id="citySearch",dir="rtl",name="citySearch", type="text", required)
+            input#userAddress(type='hidden')
+            input#cityLat(type="hidden", name="cityLat")
+            input#cityLng(type="hidden", name="cityLat")
+        .filterBar
+            input#myRange.slider(type="range", min="0.1", max="50", value="0.5")
+            label(for="myRange")
+            p.radius רדיוס מהמיקום (ק"מ):
+                span#demo
+        .filterBar
+            input#myRange2.slider(type="range", min="1", max="1000", value="15")
+            label(for="myRange2")
+            p.radius עד מחיר (ש"ח): 
+                span#demo2
+        .filterBar
+            //- input#availableWeek(dir="ltr", type="checkbox", name="availableWeek")
+            //- label#availableWeekLable(for="availableWeek") זמין לשבוע הקרוב
+            //-     span.checkmark
+            label(for="availableWeek" class="checkbox-label")
+                input#availableWeek(dir="ltr", type="checkbox", name="availableWeek")
+                span.checkmark
+                span.label-text זמין בשבוע הקרוב
+                
+                
+        .filterBar
+            h3.h3ExtraFilter(dir="rtl") הוספת תיוגים נוספים לסינון:
+            <br>
+            |
+            ul.boxTags#searchIlter
+                li
+                    input#KosherBox(type="checkbox", name="hashtag", value="Kosher")
+                    label(for="KosherBox") כשר
+                li
+                    input#notKosherBox(type="checkbox", name="hashtag", value="notKosher")
+                    label(for="notKosherBox") לא כשר
+                li
+                    input#healthyBox(type="checkbox", name="hashtag", value="healthy")
+                    label(for="healthyBox") בריא
+                li
+                    input#mushhatBox(type="checkbox", name="hashtag", value="mushhat")
+                    label(for="mushhatBox") מושחת
+                li
+                    input#sweetBox(type="checkbox", name="hashtag", value="sweety")
+                    label(for="sweetBox") מתוק
+                li
+                    input#saltBox(type="checkbox", name="hashtag", value="salty")
+                    label(for="saltBox") מלוח
+                li
+                    input#milkBox(type="checkbox", name="hashtag",value="milk")
+                    label(for="milkBox") חלבי
+                li
+                    input#meatBox(type="checkbox", name="hashtag",  value="meat")
+                    label(for="meatBox") בשרי
+                li
+                    input#fishBox(type="checkbox", name="hashtag", value="fish")
+                    label(for="fishBox") דג
+                li
+                    input#parveeBox(type="checkbox", name="hashtag", value="parve")
+                    label(for="parveeBox") פרווה           
+    block anotherContent
