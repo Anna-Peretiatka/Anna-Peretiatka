@@ -1,4 +1,6 @@
 ANNA PERETIATKA 321240350 👋
+Must insert node_modules folders to projPartC folder in order to work.
+
 part C
 
 <!--ANNA PERETIATKA 321240350
